@@ -20,19 +20,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Debug - List files before setup
-        run: |
-          pwd
-          ls -la
-          echo "Current directory contents ⬆️"
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
-      - name: Debug - Check repository structure
-        run: |
-          echo "Repository structure:"
-          tree -a || (apt-get update && apt-get install -y tree && tree -a)
 
       - name: Create CNAME file
         run: echo "danialzendehdel.engineer" > CNAME

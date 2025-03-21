@@ -35,7 +35,7 @@ jobs:
           tree -a || (apt-get update && apt-get install -y tree && tree -a)
 
       - name: Create CNAME file
-        run: echo "yourdomain.com" > CNAME
+        run: echo "danialzendehdel.engineer" > CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

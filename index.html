@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel - Apple</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .montserrat { font-family: 'Montserrat', sans-serif; }
+        .hero-section {
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+        }
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-30px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#002D72',
+                        secondary: '#B4975A'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white min-h-screen montserrat">
+    <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-50 shadow-lg">
+        <div class="max-w-[980px] mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-['Pacifico'] text-white">Logo</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="pages/tours.html" class="text-white/90 hover:text-white text-sm">Destinations</a>
+                    <a href="#" class="text-white/90 hover:text-white text-sm">Experiences</a>
+                    <a href="#" class="text-white/90 hover:text-white text-sm">Private Tours</a>
+                    <a href="#" class="text-white/90 hover:text-white text-sm">Support</a>
+                </div>
+                <div id="authLinks" class="flex items-center space-x-4">
+                    <button class="text-white/90 hover:text-white text-sm"><i class="ri-search-line"></i></button>
+                    <button class="text-white/90 hover:text-white text-sm"><i class="ri-shopping-bag-line"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full viewport hero section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="relative h-full flex items-center justify-center text-white">
+            <div class="text-center px-4">
+                <h2 class="text-5xl font-semibold mb-2">Travel</h2>
+                <h1 class="text-7xl font-bold mb-6">Experience Italy<br>like never before.</h1>
+                <p class="text-2xl mb-8 text-white/90">From $999 or $83.25/mo. for 12 mo.*</p>
+                <div class="flex justify-center space-x-6 text-xl">
+                    <a href="#featured" class="bg-white/20 hover:bg-white/30 transition-colors px-8 py-3 rounded-full backdrop-blur-sm">
+                        Learn more
+                    </a>
+                    <a href="pages/tours.html" class="bg-white text-black hover:bg-white/90 transition-colors px-8 py-3 rounded-full">
+                        Book now
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a href="#featured" class="scroll-down text-white text-4xl cursor-pointer">
+            <i class="ri-arrow-down-line"></i>
+        </a>
+    </section>
+
+    <section id="featured" class="py-20 bg-black text-white">
+        <div class="max-w-[980px] mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-semibold mb-4">Featured Experiences</h2>
+                <p class="text-xl text-white/80 max-w-2xl mx-auto">Discover our collection of carefully curated destinations.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/3960103df9f55e3c5c825ccfd0804f04.jpg" alt="Rome Luxury" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="playfair text-2xl font-bold text-primary mb-2">Roman Emperor Suite</h3>
+                        <p class="text-gray-300 mb-4">Luxury suite overlooking the Colosseum with private terrace</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-semibold">From $8,500</span>
+                            <button class="text-primary hover:text-secondary transition-colors flex items-center">
+                                Explore <i class="ri-arrow-right-line ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/0126413bf03dca794ade3aea4a650d18.jpg" alt="Tuscany Villa" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="playfair text-2xl font-bold text-primary mb-2">Tuscan Villa Retreat</h3>
+                        <p class="text-gray-300 mb-4">Private villa with personal chef and wine tasting</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-semibold">From $12,800</span>
+                            <button class="text-primary hover:text-secondary transition-colors flex items-center">
+                                Explore <i class="ri-arrow-right-line ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/60123f02fbde4585e975e0bed9be59e1.jpg" alt="Amalfi Coast" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="playfair text-2xl font-bold text-primary mb-2">Amalfi Coast Cruise</h3>
+                        <p class="text-gray-300 mb-4">Private yacht experience along the Italian coast</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-semibold">From $15,200</span>
+                            <button class="text-primary hover:text-secondary transition-colors flex items-center">
+                                Explore <i class="ri-arrow-right-line ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#FBFBFD]">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="https://public.readdy.ai/ai/img_res/b890789632f358ad4c7b90a00a3c0462.jpg" alt="Yacht Experience" class="rounded-lg shadow-xl">
+                </div>
+                <div>
+                    <h2 class="playfair text-4xl font-bold text-primary mb-6">Curated Luxury Experiences</h2>
+                    <p class="text-gray-600 mb-8">Our expert travel designers craft bespoke journeys that go beyond the ordinary. Experience the world's most exclusive destinations with unparalleled service and attention to detail.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full">
+                                <i class="ri-star-line text-secondary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-primary mb-2">Personalized Service</h3>
+                                <p class="text-gray-600">Dedicated luxury travel experts available 24/7</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full">
+                                <i class="ri-shield-check-line text-secondary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-primary mb-2">Exclusive Access</h3>
+                                <p class="text-gray-600">VIP entry to the world's most coveted experiences</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full">
+                                <i class="ri-heart-line text-secondary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-primary mb-2">Luxury Amenities</h3>
+                                <p class="text-gray-600">Premium upgrades and VIP privileges at every destination</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="playfair text-4xl font-bold mb-6">Join Our Exclusive Community</h2>
+                <p class="mb-8">Subscribe to receive personalized luxury travel recommendations and exclusive offers.</p>
+                <div class="flex gap-4">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-3 rounded-full text-gray-900 border-none shadow-md">
+                    <button class="px-8 py-3 bg-secondary text-white hover:bg-secondary/90 transition-colors !rounded-button whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#F5F5F7] text-[#6E6E73] py-16 text-sm">
+        <div class="max-w-[980px] mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <a href="#" class="text-3xl font-['Pacifico'] text-secondary block mb-6">Logo</a>
+                    <p class="text-gray-400">Creating extraordinary travel experiences for discerning travelers since 2010.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">Destinations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">Experiences</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="ri-phone-line mr-3"></i>
+                            +1 (888) 123-4567
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-mail-line mr-3"></i>
+                            contact@luxurytravel.com
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ri-map-pin-line mr-3"></i>
+                            123 Luxury Avenue, New York
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 hover:border-secondary hover:text-secondary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 hover:border-secondary hover:text-secondary transition-colors">
+                            <i class="ri-facebook-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 hover:border-secondary hover:text-secondary transition-colors">
+                            <i class="ri-twitter-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-300 mt-12 pt-8 text-center text-[#86868B] text-xs">
+                <p>Copyright © 2025 Apple Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/tours.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const subscribeForm = document.querySelector('input[type="email"]').parentElement;
+            subscribeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                if (email) {
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded shadow-lg';
+                    successMessage.textContent = 'Thank you for subscribing!';
+                    document.body.appendChild(successMessage);
+                    setTimeout(() => successMessage.remove(), 3000);
+                    this.querySelector('input[type="email"]').value = '';
+                }
+            });
+
+            const gladiatorAnimation = () => {
+                const gladiator = document.querySelector('.gladiator-container');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            gladiator.style.opacity = '1';
+                            gladiator.style.transform = 'translateY(0)';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                if (gladiator) {
+                    observer.observe(gladiator);
+                }
+            };
+            gladiatorAnimation();
+        });
+
+        // Smooth scroll for the arrow
+        document.querySelector('.scroll-down').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#featured').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html> 

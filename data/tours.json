@@ -1,0 +1,22 @@
+{
+    "tours": [
+        {
+            "id": 1,
+            "name": "Roman Emperor Experience",
+            "description": "Experience Rome like an emperor with this exclusive tour including private access to the Colosseum and Vatican Museums.",
+            "price": 8500.00,
+            "duration": 7,
+            "location": "Rome",
+            "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5"
+        },
+        {
+            "id": 2,
+            "name": "Tuscan Villa Retreat",
+            "description": "Stay in a luxury villa in the heart of Tuscany, with private chef and wine tasting experiences.",
+            "price": 12800.00,
+            "duration": 10,
+            "location": "Tuscany",
+            "image": "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216"
+        }
+    ]
+} 

@@ -20,8 +20,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debug - List files before setup
+        run: |
+          pwd
+          ls -la
+          echo "Current directory contents ⬆️"
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
+      - name: Debug - Check repository structure
+        run: |
+          echo "Repository structure:"
+          tree -a || (apt-get update && apt-get install -y tree && tree -a)
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -30,4 +41,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ github.token }} 

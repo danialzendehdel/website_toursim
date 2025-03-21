@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel - Apple</title>
+    <title>Talk Walk Italy - Luxury Tours</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +53,27 @@
             -webkit-appearance: none;
             margin: 0;
         }
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            /* Remove the filter if your logo is already white or has correct colors */
+            /* filter: brightness(0) invert(1); */
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 8px 0;
+        }
+        .logo-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #fff, #e2e2e2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
     </style>
     <script>
         tailwind.config = {
@@ -83,10 +104,11 @@
     <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-50 shadow-lg">
         <div class="max-w-[980px] mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <a href="#" class="text-2xl font-['Pacifico'] text-white">Logo</a>
+                <a href="#" class="flex items-center">
+                    <span class="logo-text">Talk Walk Italy</span>
+                </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="./pages/tours.html" class="text-white/90 hover:text-white text-sm">Tours</a>
-                    <a href="./pages/login.html" class="text-white/90 hover:text-white text-sm">Login</a>
+                    <a href="pages/tours.html" class="text-white/90 hover:text-white text-sm">Destinations</a>
                     <a href="#" class="text-white/90 hover:text-white text-sm">Experiences</a>
                     <a href="#" class="text-white/90 hover:text-white text-sm">Private Tours</a>
                     <a href="#" class="text-white/90 hover:text-white text-sm">Support</a>
@@ -104,9 +126,9 @@
         <div class="hero-overlay"></div>
         <div class="relative h-full flex items-center justify-center text-white">
             <div class="text-center px-4">
-                <h2 class="text-5xl font-semibold mb-2">Travel</h2>
-                <h1 class="text-7xl font-bold mb-6">Experience Italy<br>like never before.</h1>
-                <p class="text-2xl mb-8 text-white/90">From $999 or $83.25/mo. for 12 mo.*</p>
+                <h2 class="text-5xl font-semibold mb-2">Welcome to</h2>
+                <h1 class="text-7xl font-bold mb-6">Talk Walk Italy<br>Experience</h1>
+                <p class="text-2xl mb-8 text-white/90">Discover Italy like never before</p>
                 <div class="flex justify-center space-x-6 text-xl">
                     <a href="#featured" class="bg-white/20 hover:bg-white/30 transition-colors px-8 py-3 rounded-full backdrop-blur-sm">
                         Learn more

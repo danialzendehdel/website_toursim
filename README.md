@@ -10,3 +10,4 @@ Visit the website: https://[your-username].github.io/[repository-name]/
 - CSS3 (Tailwind CSS)
 - JavaScript
 - GitHub Pages 
+- Vercel
